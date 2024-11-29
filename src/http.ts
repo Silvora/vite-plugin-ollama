@@ -1,7 +1,8 @@
  import fetch from 'node-fetch';
+ import { logText } from "./utils"
  // 设置队列
  function fetchQueueItem(url:string,body:any):Promise<string[]> {
-    return new Promise((resolve, reject) => {
+    return new Promise ((resolve, reject) => {
         fetch(url,{
             method: 'POST',
             headers: {
@@ -9,13 +10,20 @@
             },
             body: JSON.stringify(body)
         }).then(response => response.json())
-          .then((data:any) => {
+          .then(async (data:any) => {
             // 处理返回的数据
-            let list = JSON.parse(data.response);
-            resolve(list)
+            try {
+                const parsedData = JSON.parse(data.response);
+                // 使用解析后的数据
+                resolve(parsedData)
+            } catch (error) {
+                // 处理错误，例如显示友好的错误提示给用户
+                logText(`JSON 解析错误,进行重试: ${error}`, 'red')
+                resolve(await fetchQueueItem(url,body))
+            }
+               
           })
-          .catch(error => {
-              console.log("error",error)
+          .catch(() => {
             reject(Array(30))
           });
     })

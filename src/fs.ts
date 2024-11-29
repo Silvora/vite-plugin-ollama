@@ -1,40 +1,29 @@
 import fs from 'fs/promises';
+import {logText} from "./utils"
 
 // 读取json文件
 export const readJsonFile = (filePath:string):Promise<jsonData> => {
     return new Promise((resolve, reject) => {
         // 读取数据
-        fs.readFile(filePath, 'utf-8').then((data) => {
-            resolve(data?JSON.parse(data):{});
-        }).catch((error) => {
-            reject(error);
-        })
-
+        try{
+            fs.readFile(filePath, 'utf-8').then((data) => {
+                resolve(data?JSON.parse(data):{});
+            }).catch(() => {
+                reject({});
+            })
+        }catch{
+            reject({})
+        }
     });
 }
 
 // 写入json文件 没有则创建写入
 export const writeJsonFile = (filePath:string,data:any):Promise<boolean> => {
     return new Promise((resolve, reject) => {
-        console.log(data)
         fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8').then(() => {
             resolve(true);
         }).catch(() => {
             reject(false);
-        })
-    });
-}
-
-// 在已有的json文件数据 追加数据
-export const appendJsonFile = (filePath:string,data:any):Promise<boolean> => {
-    return new Promise((resolve, reject) => {
-
-        let oldData = readJsonFile(filePath)
-
-        fs.writeFile(filePath, JSON.stringify({...oldData,...data}, null, 2), 'utf-8').then(() => {
-            resolve(true);
-        }).catch((error) => {
-            reject(error);
         })
     });
 }
@@ -58,8 +47,9 @@ export const isTranslationFile = (outputDir: string):Promise<string> => {
 
 
 // 比较两个文件的差异
-export const compareFiles = (filePath1:string, filePath2:string):Promise<string[]> => {
+export const compareFiles = (filePath1:string, filePath2:string, target:string):Promise<string[]> => {
     return new Promise( async (resolve, reject) => {
+
 
         let file1_data:any = await readJsonFile(filePath1)
         let file2_data:any
@@ -72,11 +62,23 @@ export const compareFiles = (filePath1:string, filePath2:string):Promise<string[
         }
 
         if(file2_data){
-            const diff = Object.keys(file1_data).filter(key => file1_data[key] !== file2_data[key]);
+
+            const diff = Object.keys(file1_data).filter(key => {
+                return !(key in file2_data);
+            });
             resolve(diff);
+
         }else{
-            const diff = Object.keys(file1_data)
+
+            let diff:string[] = []
+            if(target === "key"){
+                diff = Object.keys(file1_data)
+            }
+            if(target === "value"){
+                diff = Object.values(file1_data)
+            }
             resolve(diff);
+
         }
     });
 }
@@ -88,16 +90,17 @@ export const  createJsonFile = async (isFile:string,outputDir:string, data:trans
     for (let i = 0; i < keys.length; i++) {
         let json = data[keys[i]]
         let isOK:boolean
+        let filePath = outputDir+keys[i]+'.json'
         if(isFile){
-            isOK = await appendJsonFile(outputDir+keys[i]+'.json',json)
-
+            let oldData = await readJsonFile(filePath)
+            isOK = await writeJsonFile(filePath, {...oldData,...json})
         }else{
-            isOK = await writeJsonFile(outputDir+keys[i]+'.json',json)
+            isOK = await writeJsonFile(filePath, json)
         }
         if(isOK){
-            console.log(`✨ ${keys[i]} file is sucess !!!`)
+            logText(`📁 File generated successfully: ${keys[i]}.json\n`, 'greenBright')
         }else{
-             console.log(`💥 ${keys[i]} file is err`)
+            logText(`💥 ${keys[i]}.json file is err\n`, 'red')
         }
     }
 }

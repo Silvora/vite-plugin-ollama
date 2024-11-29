@@ -10,4 +10,5 @@ build({
   sourcemap: true,
   minify: true,
   external: ['vite'], // 避免将 Vite 打包到插件中
+  treeShaking: true
 }).catch(() => process.exit(1));
