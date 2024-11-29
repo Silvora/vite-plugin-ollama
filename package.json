@@ -1,0 +1,21 @@
+{
+    "name": "i18n-npm",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "node build.ts",
+        "test": "node example/main.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@types/node": "^22.10.0",
+        "esbuild": "^0.24.0",
+        "fs": "^0.0.1-security",
+        "node-fetch": "^3.3.2",
+        "path": "^0.12.7",
+        "typescript": "^5.7.2",
+        "vite": "^5.4.11"
+    }
+}
