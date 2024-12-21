@@ -10,15 +10,16 @@
         "declaration": true,
         "baseUrl": ".",
         "paths": {
-            "@": ["packages/*/src"]
+            "@": ["src"],
+            "@/*": ["src/*"]
         }
     },
     "include": [
         "**/*.ts",
         "**/*.d.ts",
-        "packages/**/*.ts",
-        "packages/**/*.d.ts",
+        "src/**/*.ts",
+        "src/**/*.d.ts",
         "types/**/*.ts",
         "types/**/*.d.ts"
-, "scripts/i18n-build.js", "types/i18n.d.js"    ]
+    ]
 }
