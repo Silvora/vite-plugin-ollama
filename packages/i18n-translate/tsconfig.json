@@ -8,18 +8,16 @@
         "esModuleInterop": true,
         "skipLibCheck": true,
         "declaration": true,
+        "importHelpers": true, // 必须启用
         "baseUrl": ".",
         "paths": {
-            "@": ["src"],
-            "@/*": ["src/*"]
+            "@": ["src"]
         }
     },
     "include": [
         "**/*.ts",
         "**/*.d.ts",
         "src/**/*.ts",
-        "src/**/*.d.ts",
-        "types/**/*.ts",
-        "types/**/*.d.ts"
-    ]
+        "src/**/*.d.ts"
+      ]
 }

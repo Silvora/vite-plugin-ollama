@@ -1,6 +1,6 @@
 import languagesJson from "./public/languages.json";
 import chalk from 'chalk';
-import ora from 'ora';
+import ora, { Color } from 'ora';
 // 获取语言类型
 export const getLanguage = (languages: languageType):langueItem => {
     return languagesJson[languages]
@@ -143,8 +143,8 @@ export const logStatus = ():any => {
      * @param {string} spinnerText - The text to display while the spinner is running.
      * @param {string} color - The color of the spinner.
      */
-    const start = (spinnerText:string,color:string) => {
-        spinner = ora({ text:spinnerText, color,}).start()
+    const start = (spinnerText:string,color:Color) => {
+        spinner = ora({ text:spinnerText, color}).start()
     };
     const end = (spinnerText:string) => {
         if (spinner) {
@@ -161,7 +161,7 @@ export const logStatus = ():any => {
 }
 
 
-export const logText = (text:string,color:string) => {
+export const logText = (text:string,color:Color) => {
     console.log(chalk[color](`${text}`));
 }
 

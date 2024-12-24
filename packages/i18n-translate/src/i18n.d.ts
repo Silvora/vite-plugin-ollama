@@ -1,3 +1,6 @@
+declare module '*.json';
+
+
 // 配置数据
 interface configType {
     inputDir: string, // 翻译的源文件
@@ -23,6 +26,9 @@ interface arrTranslateMap {
     apiList: apiHeaderBody[],
     translateData: string[][]
 }
+
+
+
 
 type translateMap = {
     [x: string]: arrTranslateMap
@@ -54,7 +60,13 @@ interface langueItem {
 type languageType = "zh"|"en"|"es"
 
 
-declare module '*.json';
 
-declare module 'ora';
-declare module 'chalk';
+
+interface jsonMapType {
+    [x: string]: jsonData
+}
+
+type fnType = {
+    [x: string]: (...args: any[]) => any
+}
+
