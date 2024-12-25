@@ -62,7 +62,7 @@ type languageType = "zh"|"en"|"es"
 
 
 
-type jsonMapType = {
+interface jsonMapType {
     [x: string]: jsonData
 }
 

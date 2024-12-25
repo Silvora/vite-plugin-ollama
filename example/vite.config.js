@@ -1,5 +1,4 @@
-import MyVitePlugin from '../dist/index.js';
-
+import MyVitePlugin from '../packages/i18n-translate/dist/index.js';
 export default {
   plugins: [MyVitePlugin(
      {

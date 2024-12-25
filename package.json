@@ -4,24 +4,33 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "i18n:build": "node ./scripts/i18n-build.js",
-    "build": "rollup ./packages/i18n-translate/src/index.ts -f esm -o ./packages/i18n-translate/dist/index.js",
-    "test": "npx vite example/"
+    "dev": "npx vite example/",
+    "core:build": "rollup -c packages/core/rollup.config.js",
+    "i18n:build": "rollup -c packages/i18n/rollup.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "workspaces": [
+    "packages/*"
+  ],
   "dependencies": {
+    "@rollup/plugin-alias": "^5.1.1",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-typescript": "^12.1.2",
     "chalk": "^5.3.0",
     "fs": "^0.0.1-security",
     "node-fetch": "^3.3.2",
     "ora": "^8.1.1",
     "path": "^0.12.7",
+    "tslib": "^2.8.1",
     "typescript": "^5.7.2",
     "vite": "^5.4.11"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
-    "rollup": "^3.28.0"
+    "rollup": "^3.29.5"
   }
 }

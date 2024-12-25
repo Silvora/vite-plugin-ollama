@@ -1,13 +1,4 @@
-
-export const ollamaModuleMap: jsonMapType = {
-    // 翻译
-    'i18n':{
-        type: 'mistral-small',
-        model: "mistral-small",
-        stream: "false",
-    }
-}
-
+export declare const ollamaModuleMap: jsonMapType;
 /**
  * Given a module type and options, return a combined object with the
  * default options for the module type overridden by the provided options.
@@ -16,13 +7,4 @@ export const ollamaModuleMap: jsonMapType = {
  * @param {Object} options - the options to override the default options with
  * @return {Object} the combined options object
  */
-export const getModuleOptions = (type:string, options: any) => { 
-    const module = ollamaModuleMap[type]
-
-    return {...module, ...options}
-}
-
-
-
-
-
+export declare const getModuleOptions: (type: string, options: any) => any;

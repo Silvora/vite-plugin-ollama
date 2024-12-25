@@ -1,2 +1,4 @@
 packages:
     - packages/*
+    # 公共依赖
+    - packages/core/*

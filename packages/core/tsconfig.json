@@ -11,15 +11,14 @@
         "importHelpers": true, // 必须启用
         "baseUrl": ".",
         "paths": {
-            "@": ["packages/*/src"]
+            "@": ["src"]
         }
     },
     "include": [
-        "**/*.ts",
         "**/*.d.ts",
-        "packages/**/*.ts",
-        "packages/**/*.d.ts",
-        "types/**/*.ts",
-        "types/**/*.d.ts"
-      ]
+        "**/*.ts",
+        "src/**/*.ts",
+        "src/**/*.d.ts"
+    ],
+    "exclude": ["node_modules", "dist"]
 }
