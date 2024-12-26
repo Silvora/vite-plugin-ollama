@@ -1,10 +1,12 @@
-import MyVitePlugin from '../packages/i18n-translate/dist/index.js';
+import MyVitePlugin from '@vite-plugin-ollama/i18n-translate';
+
 export default {
   plugins: [MyVitePlugin(
      {
          inputDir: "/locales/zh.json",
          outputDir: "/locales/",
-         formats: ["en"],
+         formats: ["ar"],
+         size: 20,
      }
   )],
 };

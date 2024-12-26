@@ -45,7 +45,18 @@ type jsonKey = keyof jsonData
 
 
 type translateMapData = {
-    [ x:string]: jsonData
+    // target: string[][],
+    // source: jsonData,
+    // prompt: string,
+    // languageData: jsonData,
+
+
+    [ x:string]: {
+        target: string[][],
+        source: string[][],
+        prompt: string,
+        languageData: jsonData,
+    }
 }
 
 

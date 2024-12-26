@@ -3,11 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "scripts": {
-    "dev": "npx vite example/",
-    "core:build": "rollup -c packages/core/rollup.config.js",
-    "i18n:build": "rollup -c packages/i18n/rollup.config.js"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -22,10 +18,13 @@
     "@rollup/plugin-typescript": "^12.1.2",
     "chalk": "^5.3.0",
     "fs": "^0.0.1-security",
+    "json5": "^2.2.3",
     "node-fetch": "^3.3.2",
+    "ollama": "^0.5.11",
     "ora": "^8.1.1",
     "path": "^0.12.7",
     "tslib": "^2.8.1",
+    "tsup": "^8.3.5",
     "typescript": "^5.7.2",
     "vite": "^5.4.11"
   },

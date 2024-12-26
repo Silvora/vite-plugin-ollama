@@ -36,12 +36,12 @@ export const readJsonFile = (filePath: string):Promise<jsonData> => {
     return new Promise((resolve, reject) => {
         try{
             fs.readFile(filePath, 'utf-8').then((data) => {
-                resolve(data?JSON.parse(data):{});
+                resolve(data?JSON.parse(data):null);
             }).catch(() => {
-                reject({});
+                reject(null);
             })
         }catch{
-            reject({});
+            reject(null);
         }
     });
 }

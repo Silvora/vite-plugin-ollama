@@ -1,0 +1,16 @@
+{
+  "name": "example-vue",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "npx vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vite": "^5.4.11",
+    "@vite-plugin-ollama/i18n-translate": "workspace:*"
+  }
+}

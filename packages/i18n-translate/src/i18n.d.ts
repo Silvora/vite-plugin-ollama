@@ -3,6 +3,7 @@ declare module '*.json';
 
 // 配置数据
 interface configType {
+    options: translateMapData
     inputDir: string, // 翻译的源文件
     outputDir: string, // 输出翻译后放置在那个目录下
     formats: string[], // 翻译的语言类型
@@ -11,8 +12,16 @@ interface configType {
     proxy?: string, // 发起请求的url 默认http://127.0.0.1:11434/api/generate
     model?: string, // 使用的模型 默认mistral-small
     translator?: ()=>{}, // 回调事件
+    // TranslateMap?: TranslateMapType // 翻译数据
+    translateMap:any
 }
 
+interface TranslateMapType {
+    languageData: jsonData,        
+    prompt: string,
+    source: string[][],
+    target:string[][],
+}
 interface apiHeaderBody {
     model: string, // 模型名称
     stream: boolean, // 是否流式输出
@@ -21,10 +30,14 @@ interface apiHeaderBody {
 
 
 interface arrTranslateMap {
-    arr: string[][],
-    format: string,
-    apiList: apiHeaderBody[],
-    translateData: string[][]
+    // arr: string[][],
+    // format: string,
+    // apiList: apiHeaderBody[],
+    // translateData: string[][]
+    languageData: jsonData,        
+    prompt: string,
+    source: string[][],
+    target:string[][],
 }
 
 
@@ -37,7 +50,7 @@ type translateMap = {
 type jsonMap = keyof translateMap
 
 type jsonData = {
-    [x:string]:string
+    [x:string]:string|string[]|string[][]
 }
 
 type jsonKey = keyof jsonData
@@ -45,7 +58,14 @@ type jsonKey = keyof jsonData
 
 
 type translateMapData = {
-    [ x:string]: jsonData
+    
+    [ x:string]: {
+        target: string[][],
+        source: string[][],
+        prompt: string,
+        languageData: jsonData,
+        data: jsonData
+    }
 }
 
 

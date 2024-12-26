@@ -2,14 +2,14 @@ import chalk from 'chalk';
 import ora, { Color } from 'ora';
 
 
-export let spinner:any = null
+let spinner:any = null
 
 /**
  * Logs the specified text to the console with the specified color.
  * @param {string} text - The text to be logged.
  * @param {Color} color - The color to use for logging the text.
  */
-export const logText = (text:string,color:Color) => {
+export const logText = (text:string,color: Color) => {
     console.log(chalk[color](`${text}`));
 }
 
@@ -62,5 +62,6 @@ export const logMessage = (starText:string, color: Color, endText:string, callba
     callback()
     spinner.succeed(endText);
 };
+
 
 

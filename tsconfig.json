@@ -11,15 +11,11 @@
         "importHelpers": true, // 必须启用
         "baseUrl": ".",
         "paths": {
-            "@": ["packages/*/src"]
+            "@core/*": ["packages/core/src/*"],
+            "@i18n/*": ["packages/i18n-translate/src/*"]
         }
     },
     "include": [
-        "**/*.ts",
-        "**/*.d.ts",
-        "packages/**/*.ts",
-        "packages/**/*.d.ts",
-        "types/**/*.ts",
-        "types/**/*.d.ts"
+        "packages/**/*", "example",
       ]
 }
