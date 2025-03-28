@@ -127,6 +127,12 @@ importers:
         specifier: ^5.7.2
         version: 5.7.2
 
+  packages/testing:
+    dependencies:
+      '@vite-plugin-ollama/core':
+        specifier: workspace:^
+        version: link:../core
+
 packages:
 
   '@esbuild/aix-ppc64@0.21.5':
