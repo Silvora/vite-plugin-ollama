@@ -1,24 +1,24 @@
 {
-  "name": "@vite-plugin-ollama/testing",
+  "name": "testing",
   "version": "1.0.0",
-  "description": "",
+  "description": "> TODO: description",
+  "author": "whispora <whispora@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
+  "main": "lib/testing.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
   },
   "files": [
-    "dist"
+    "lib"
   ],
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@vite-plugin-ollama/core": "workspace:^"
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "test": "node ./__tests__/testing.test.js",
+    "build": "rollup -c"
   }
 }

@@ -1,20 +1,16 @@
 {
     "compilerOptions": {
-        "target": "esnext",
-        "module": "esnext",
-        "moduleResolution": "node",
-        "outDir": "dist",
-        "strict": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "declaration": true,
-        "importHelpers": true, // 必须启用
-        "baseUrl": ".",
-        "paths": {
-            "@": ["src"]
-        }
+      "outDir": "dist",
+      "module": "esnext",
+      "rootDir": "lib",
+      "target": "esnext",
+      "declaration": true,
+      "strict": true,
+      "baseUrl": ".",
+      "paths": {
+          "@": ["lib"]
+      }
     },
-    "include": [
-        "src"
-      ]
+    "include": ["lib"],
+    "extends": "../../tsconfig.base.json"
 }

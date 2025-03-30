@@ -1,35 +1,14 @@
 {
   "name": "vite-plugin-ollama",
-  "version": "1.0.0",
-  "description": "",
-  "type": "module",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "workspaces": [
-    "packages/*"
-  ],
-  "dependencies": {
-    "@rollup/plugin-alias": "^5.1.1",
-    "@rollup/plugin-commonjs": "^28.0.2",
-    "@rollup/plugin-json": "^6.1.0",
-    "@rollup/plugin-node-resolve": "^16.0.0",
-    "@rollup/plugin-typescript": "^12.1.2",
-    "chalk": "^5.3.0",
-    "fs": "^0.0.1-security",
-    "json5": "^2.2.3",
-    "node-fetch": "^3.3.2",
-    "ollama": "^0.5.11",
-    "ora": "^8.1.1",
-    "path": "^0.12.7",
-    "tslib": "^2.8.1",
-    "tsup": "^8.3.5",
-    "typescript": "^5.7.2",
-    "vite": "^5.4.11"
-  },
+  "private": true,
   "devDependencies": {
-    "@types/node": "^22.10.0",
-    "rollup": "^3.29.5"
+    "lerna": "^8.2.1"
+  },
+  "dependencies": {
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/node": "^22.13.14",
+    "rollup": "^4.38.0",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.3"
   }
 }
