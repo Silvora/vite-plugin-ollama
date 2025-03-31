@@ -1,12 +1,12 @@
 {
-  "name": "core",
+  "name": "@vite-plugin-ollama/core",
   "version": "1.0.0",
   "description": "> TODO: description",
   "author": "whispora <whispora@gmail.com>",
   "homepage": "",
   "license": "ISC",
   "type": "module",
-  "main": "lib/core.js",
+  "main": "lib/index.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -20,5 +20,12 @@
   "scripts": {
     "test": "node ./__tests__/core.test.js",
     "build": "rollup -c"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "glob": "^11.0.1",
+    "got": "^14.4.7",
+    "ollama": "^0.5.14",
+    "ora": "^8.2.0"
   }
 }

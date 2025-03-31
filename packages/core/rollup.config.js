@@ -1,4 +1,7 @@
 import typescript from "@rollup/plugin-typescript";
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import json from "@rollup/plugin-json";
 
 export default {
   input: "lib/index.ts",
@@ -14,5 +17,10 @@ export default {
       sourcemap: true
     }
   ],
-  plugins: [typescript()]
+  plugins: [
+    resolve(),  
+    commonjs(), 
+    typescript(),
+    json(),
+  ]
 };

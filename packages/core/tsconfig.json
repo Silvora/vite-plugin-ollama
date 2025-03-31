@@ -1,11 +1,13 @@
 {
     "compilerOptions": {
-      "outDir": "dist",
-      "module": "esnext",
-      "rootDir": "lib",
       "target": "esnext",
+      "module": "esnext",
+      "moduleResolution": "node",
+      "outDir": "dist",
       "declaration": true,
       "strict": true,
+      "allowImportingTsExtensions": true,
+      "noEmit": true,
       "baseUrl": ".",
       "paths": {
           "@": ["lib"]
