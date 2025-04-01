@@ -55,7 +55,11 @@ importers:
         specifier: ^8.2.0
         version: 8.2.0
 
-  packages/i18n: {}
+  packages/i18n:
+    dependencies:
+      '@vite-plugin-ollama/core':
+        specifier: workspace:*
+        version: link:../core
 
   packages/testing: {}
 

@@ -1,5 +1,5 @@
 {
-  "name": "i18n",
+  "name": "@vite-plugin-ollama/i18n",
   "version": "1.0.0",
   "description": "> TODO: description",
   "author": "whispora <whispora@gmail.com>",
@@ -20,5 +20,8 @@
   "scripts": {
     "test": "node ./__tests__/i18n.test.js",
     "build": "rollup -c"
+  },
+  "dependencies": {
+    "@vite-plugin-ollama/core": "workspace:*"
   }
 }
