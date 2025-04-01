@@ -1,6 +1,6 @@
 # `@vite-plugin-ollama/i18n`
 
-> TODO: 使用ollama本地模型进行i18n翻译
+> TODO: 使用本地模型ollama进行多语言翻译
 
 
 # Description
