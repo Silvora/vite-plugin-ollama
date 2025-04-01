@@ -1,11 +1,13 @@
+import { initOptions } from "./init/index.ts";
 
 export default function i18nPlugin(options:any) {
   let optionsConfig: any; // 用于保存项目根目录
   return {
     name: 'vite-plugin-i18n',
     configResolved(options: any) {
-      //解析配置
+      // 初始化 判断配置时候正确
       optionsConfig = options;
+      initOptions(optionsConfig);
     },
     buildStart() {
       // 获取文件地址目录 和 需翻译的内容
