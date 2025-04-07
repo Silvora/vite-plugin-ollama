@@ -1,5 +1,5 @@
 import path from 'path';
-import fs from 'fs/promises';
+import { getFileDir, readFile } from "@vite-plugin-ollama/core"
 
 
 // 获取文件名
@@ -7,16 +7,7 @@ export function getFilePath(sourceFile: any) {
     // /lang/zh.json -> zh
     return path.parse(sourceFile);
 }
-// 获取文件目录
-export async function getFileDir(outDir: any) {
-    try {
-        const dirents = await fs.readdir(outDir, { withFileTypes: true });
-        return dirents;
 
-    } catch (error) {
-        throw new Error('获取文件目录失败');
-    }
-}
 
 
 export async function getFilesData(options: any) {
@@ -35,7 +26,7 @@ export async function getFilesData(options: any) {
         if(pathName.base === dirent.name){
             continue;
         }
-        
+
         if(dirent.isFile()){
 
             if (path.extname(dirent.name) !== '.json') {
@@ -71,21 +62,20 @@ export async function getFileData(sourceFile: string) {
 
     // 获取文件名
     let pathName = getFilePath(sourceFile);
- 
     let fileData: any = null;
 
-    try{
-        let data = await fs.readFile(sourceFile, 'utf-8')
+    try {
 
-        fileData = JSON.parse(data)
-
-        // data = Object.keys(JSON.parse(data) as any) as any;
+        let data = await readFile(sourceFile);
+        fileData = data && JSON.parse(data)
 
     } catch (error) {
-        // 文件不存在
-        // baseData[pathName.name]= null;
-        
+
+        // throw new Error('文件不存在');
+        console.log('文件不存在');
+
     }
+
 
     return { pathName, fileData };
 }
