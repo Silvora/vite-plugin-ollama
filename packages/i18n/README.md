@@ -18,7 +18,7 @@ import i18nPlugin from '@vite-plugin-ollama/i18n'
 
 // 配置数据
 interface configType {
-    sourceFile: string;
+    sourceDir: string;
     outDir: string;
     formats: string[];
     proxy?: string;
@@ -29,7 +29,7 @@ interface configType {
 export default {
   plugins: [i18nPlugin(
      {
-        sourceFile: "/locales/zh.json",
+        sourceDir: "/locales/zh.json",
         outDir: "/locales/",
         formats: ["en"],
         proxy: 'ollama',
@@ -38,7 +38,7 @@ export default {
   )],
 };
 ```
-- `sourceFile` `<string>` 翻译的源文件地址
+- `sourceDir` `<string>` 翻译的源文件地址
 - `outDir` `<string>` 输出翻译后放置在那个目录下
 - `formats` `<string[]>` 翻译的语言类型
 - `proxy` `<string>` (可选) 模型的类型 默认本地ollama

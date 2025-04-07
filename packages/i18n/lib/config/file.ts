@@ -3,9 +3,9 @@ import { getFileDir, readFile } from "@vite-plugin-ollama/core"
 
 
 // 获取文件名
-export function getFilePath(sourceFile: any) {
+export function getFilePath(sourceDir: any) {
     // /lang/zh.json -> zh
-    return path.parse(sourceFile);
+    return path.parse(sourceDir);
 }
 
 
@@ -14,7 +14,7 @@ export async function getFilesData(options: any) {
 
     let dataBase:any = {};
 
-    let { pathName, fileData }:any = await getFileData(options.sourceFile);
+    let { pathName, fileData }:any = await getFileData(options.sourceDir);
     let dirDataKey = Object.keys(fileData);
     dataBase[pathName.name] = dirDataKey;
 
@@ -58,15 +58,15 @@ export async function getFilesData(options: any) {
 
 }
 
-export async function getFileData(sourceFile: string) {
+export async function getFileData(sourceDir: string) {
 
     // 获取文件名
-    let pathName = getFilePath(sourceFile);
+    let pathName = getFilePath(sourceDir);
     let fileData: any = null;
 
     try {
 
-        let data = await readFile(sourceFile);
+        let data = await readFile(sourceDir);
         fileData = data && JSON.parse(data)
 
     } catch (error) {
