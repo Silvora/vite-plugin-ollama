@@ -3,6 +3,7 @@
 > 使用本地模型ollama进行多语言翻译 
 
 ## Todo
+- ❓ 判断是否是 vite 环境
 - ❓ 翻译文件是否可以指定后缀
   - ❓ 翻译文件指定后, 是否可以指定翻译内容的 `key` 和 `value`
 - ❓ 使用本地ollama, 是否根据电脑性能大小进行分片翻译
@@ -17,7 +18,7 @@ import i18nPlugin from '@vite-plugin-ollama/i18n'
 
 // 配置数据
 interface configType {
-    baseFile: string;
+    sourceFile: string;
     outDir: string;
     formats: string[];
     proxy?: string;
@@ -28,7 +29,7 @@ interface configType {
 export default {
   plugins: [i18nPlugin(
      {
-        fileDir: "/locales/zh.json",
+        sourceFile: "/locales/zh.json",
         outDir: "/locales/",
         formats: ["en"],
         proxy: 'ollama',
@@ -37,7 +38,7 @@ export default {
   )],
 };
 ```
-- `baseFile` `<string>` 翻译的源文件地址
+- `sourceFile` `<string>` 翻译的源文件地址
 - `outDir` `<string>` 输出翻译后放置在那个目录下
 - `formats` `<string[]>` 翻译的语言类型
 - `proxy` `<string>` (可选) 模型的类型 默认本地ollama

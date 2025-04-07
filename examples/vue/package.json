@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@vite-plugin-ollama/i18n": "workspace:*",
+    "vite": "^4.4.9"
+  }
 }
