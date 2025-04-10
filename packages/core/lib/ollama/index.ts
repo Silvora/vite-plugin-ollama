@@ -1,12 +1,19 @@
 import Ollama from 'ollama';
 
+
+interface OllamaInfo {
+    name: string
+    content: string
+}
+
+
 // 判断时候下载ollama模型
 async function isDownloadOllama(ollamaName: string) {  
     let list = await Ollama.list()
     return list.models.filter(item => item.name == ollamaName).length > 0
 }
 
-export async function ollamaChat(ollamaInfo:any) {
+export async function ollamaChat(ollamaInfo: OllamaInfo) {
 
     let isDownload = await isDownloadOllama(ollamaInfo.name)
 

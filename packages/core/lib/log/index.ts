@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import ora, { Color } from 'ora';
+import ora, { Ora } from 'ora';
 chalk.level = 3;
 
 type logType = "info" | "success" | "warn" | "error"
@@ -21,7 +21,7 @@ export function log(msg: string, type: logType) {
 
 
 // 加载
-export function logLoading(msg: string) {
+export function logLoading(msg: string): Ora {
     const spinner = ora(msg).start();
     return spinner;
 }
