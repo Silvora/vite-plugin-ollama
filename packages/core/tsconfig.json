@@ -1,18 +1,8 @@
 {
-    "compilerOptions": {
-      "target": "esnext",
-      "module": "NodeNext",
-      "moduleResolution": "nodenext",
-      "outDir": "dist",
-      "declaration": true,
-      "strict": true,
-      "allowImportingTsExtensions": true,
-      "noEmit": true,
-      "baseUrl": ".",
-      "paths": {
-          "@": ["lib"]
-      }
-    },
-    "include": ["lib"],
-    "extends": "../../tsconfig.base.json"
-  }
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "include": ["lib"],
+  "exclude": ["dist"]
+}

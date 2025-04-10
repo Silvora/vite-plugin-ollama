@@ -1,8 +1,22 @@
 {
-    "compilerOptions": {
-      "module": "CommonJS",
-      "target": "ES6",
-      "declaration": true,
-      "strict": true
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@core/*": ["packages/core/src/*"],
+      "@i18n/*": ["packages/i18n/src/*"]
     }
   }
+}
