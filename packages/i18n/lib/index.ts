@@ -2,11 +2,11 @@ import { initOptions } from "./init/index.ts";
  import { getPathData} from "./config/index.ts"
 
 export default function i18nPlugin(options:any) {
-  let optionsConfig: any; // 用于保存项目根目录
+  let _optionsConfig: any; // 用于保存项目根目录
   return {
     name: 'vite-plugin-i18n',
     configResolved(config: any) {
-      optionsConfig = config;
+      _optionsConfig = config;
     },
     buildStart() {
       console.log('vite-plugin-i18n buildStart', options);
